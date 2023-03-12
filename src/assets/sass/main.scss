@@ -1,0 +1,19 @@
+@use 'variables';
+
+:root{
+  font-size: 62.5%; /* 10px */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: variables.$font-family;
+}
+
+h1 {
+  background-color: variables.$bg-header;
+}

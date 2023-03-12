@@ -1,0 +1,19 @@
+:root {
+  font-size: 62.5%; /* 10px */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  background-color: #5A2D82;
+}
+
+/*# sourceMappingURL=main.css.map */
