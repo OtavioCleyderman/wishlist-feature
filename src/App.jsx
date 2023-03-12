@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import AppRoutes from './AppRoutes'
 
 function App() {
  return (
-  <h1>Hello, world!</h1>
+  <AppRoutes />
  )
 }
 
