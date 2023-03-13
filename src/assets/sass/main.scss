@@ -8,6 +8,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 1.6rem;
+  list-style: none;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 html {
@@ -16,5 +22,73 @@ html {
 
 .header {
   background-color: variables.$bg-header;
-  height: 23vh;
+  color: variables.$primary-text-color;
+  height: 20vh;
+  padding: 4rem;
+  display: grid;
+  -ms-display: grid;
+  grid-template-columns: minmax(20rem, 35rem) 1fr;
+  -ms-grid-template-columns: minmax(20rem, 35rem) 1fr;
+  
+
+  h1{
+    font-size: 3.4rem;
+    
+  }
+
+  .navbar {
+    display: grid;
+    -ms-display: grid;
+    height: 8rem;
+
+    .nav {
+      display: flex;
+      -ms-display: flex;
+      justify-content: space-between;
+      margin-top: .8rem;
+  
+  
+      &__item {
+        a{
+          display: flex;
+          -ms-display: flex;
+          color: variables.$primary-text-color;
+  
+          :first-child{
+            margin-right: 1rem;
+          }
+          
+        }
+      }
+    }
+
+    .search{
+      display: flex;
+      background-color: #FFF;
+      align-items: center;
+      border-radius: .3rem;
+      height: 4.7rem;
+      margin-top: 1.5rem;
+
+      :first-child{
+        width: 5rem;
+        fill: #000;
+      }
+
+      input{
+        border: none;
+        width: 100%;
+        outline: none;
+      }
+    }
+
+  }
+
+
+
+
+
 }
+
+
+

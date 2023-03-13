@@ -1,9 +1,14 @@
 import React from 'react'
 
-function Header(props) {
+import Logo from './Logo'
+import NavBar from './NavBar'
+
+
+function Header() {
   return (
     <div className='header'>
-      <h1>{props.logo}</h1>
+      <Logo />
+      <NavBar />
     </div>
   )
 }

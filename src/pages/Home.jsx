@@ -4,7 +4,7 @@ import Header from '../components/Header'
 function home() {
   return (
     <>
-      <Header logo='Home!'/>
+      <Header />
       <h1>Corpo!</h1>
     </>
   )
