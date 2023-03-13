@@ -31,9 +31,12 @@ html {
   -ms-grid-template-columns: minmax(20rem, 35rem) 1fr;
   
 
-  h1{
+  & h1{
     font-size: 3.4rem;
-    
+  }
+
+  & a{
+    color: variables.$primary-text-color;
   }
 
   .navbar {

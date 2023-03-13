@@ -30,6 +30,9 @@ html {
 .header h1 {
   font-size: 3.4rem;
 }
+.header a {
+  color: #FFF;
+}
 .header .navbar {
   display: grid;
   -ms-display: grid;
