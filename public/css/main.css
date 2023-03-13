@@ -70,4 +70,88 @@ html {
   outline: none;
 }
 
+.container {
+  margin: 4rem;
+}
+.container > span {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+.container .cards {
+  margin-top: 3rem;
+  display: grid;
+  -ms-display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  -ms-grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+}
+@media only screen and (min-width: 1360px) {
+  .container .cards {
+    grid-template-columns: repeat(4, minmax(30rem, 1fr));
+    -ms-grid-template-columns: repeat(4, minmax(30rem, 1fr));
+  }
+}
+.container .cards__item::before {
+  content: " ";
+  padding: 1.9rem;
+  height: 0.1rem;
+  background-color: #000;
+  border: none;
+  border-radius: 2px 2px 0 0;
+  position: absolute;
+  top: -1px;
+  left: 0.2rem;
+  border-radius: 0 0 0.3rem 0.3rem;
+  cursor: pointer;
+}
+.container .cards__item::after {
+  content: " ";
+  width: 0;
+  height: 0;
+  left: 0.2rem;
+  top: 3.6rem;
+  border-left: 2rem solid transparent;
+  border-right: 1.8rem solid transparent;
+  border-top: 2rem solid #000;
+  border-bottom: 0;
+  position: absolute;
+  cursor: pointer;
+}
+.container .cards__fav {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0.6rem;
+  top: 0.6rem;
+  color: #FFF;
+  z-index: 1;
+}
+.container .cards__fav > svg {
+  font-size: 3rem;
+  cursor: pointer;
+}
+.container .cards__item {
+  margin: 0 2rem 2rem 0;
+  max-width: 30rem;
+  height: 48rem;
+  border: 1px solid rgb(185, 185, 185);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+.container .cards__image img {
+  width: 100%;
+  object-fit: cover;
+}
+.container .cards__title {
+  font-weight: 700;
+  align-items: center;
+  margin: 1rem 0 7rem 0;
+}
+.container .cards__price {
+  font-weight: bold;
+  color: #EBD341;
+}
+
 /*# sourceMappingURL=main.css.map */
