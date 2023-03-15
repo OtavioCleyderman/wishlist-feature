@@ -16,8 +16,22 @@ export function useRequestApi(url, options){
       })
       .finally(() => {
         setIsRequest(false)
-      })
+      })    
   }, [])
 
   return { data, error, isRequest }
+}
+
+export function useRequestLocalStorage(key){
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    setData(localStorage.getItem(key))
+  }, [])
+
+  return { data }
+}
+
+export function sendLocalStorage(favorites){
+  localStorage.setItem('wishlist', favorites)
 }

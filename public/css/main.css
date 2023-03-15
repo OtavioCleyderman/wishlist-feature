@@ -123,7 +123,6 @@ html {
   left: 0.6rem;
   top: 0.6rem;
   color: #FFF;
-  z-index: 1;
 }
 .container .cards__fav > svg {
   font-size: 3rem;
@@ -152,6 +151,16 @@ html {
 .container .cards__price {
   font-weight: bold;
   color: #EBD341;
+}
+.container .noWishlist {
+  width: 100vw;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .noWishlist p.noWishlist__message {
+  font-size: 2rem;
 }
 
 /*# sourceMappingURL=main.css.map */

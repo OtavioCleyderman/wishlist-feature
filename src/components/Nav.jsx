@@ -8,7 +8,7 @@ function Nav() {
   return (
       <ul className='nav'>
         <li className='nav__item'>
-          <Link to="#">
+          <Link to="">
             <HiMapPin /> 
             <span>
               Cidade: São Paulo
@@ -16,7 +16,7 @@ function Nav() {
           </Link>
         </li>
         <li className='nav__item'>
-          <Link to="#">
+          <Link to="">
             <HiPhone /> 
             <span>
               Central de atendimento
