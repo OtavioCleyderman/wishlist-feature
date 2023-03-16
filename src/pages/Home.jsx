@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import { useRequestApi } from '../services'
 import { AiFillHeart } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 function home() {
   const { data, isRequest } = useRequestApi('https://run.mocky.io/v3/66063904-d43c-49ed-9329-d69ad44b885e')
@@ -12,7 +13,6 @@ function home() {
   const filteredProducts = search
     ? products.filter((product) => product.title.toLowerCase().includes(search.toLowerCase()))
     : products;
-
 
 
   useEffect(() => {
@@ -65,7 +65,11 @@ function home() {
     <>
       <Header onSearch={setSearch}/>
       <main className='container'>
-        <span>Home</span>
+        <Link to={'/'}>
+          <span>
+            Home
+          </span>
+        </Link>
         <div className="cards">
           {isRequest && <p> Carregando... </p> }
           {filteredProducts?.map(product => {

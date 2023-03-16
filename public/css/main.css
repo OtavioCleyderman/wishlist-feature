@@ -27,6 +27,44 @@ html {
   grid-template-columns: minmax(20rem, 35rem) 1fr;
   -ms-grid-template-columns: minmax(20rem, 35rem) 1fr;
 }
+@media screen and (max-width: 720px) {
+  .header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4rem 0;
+  }
+  .header .navbar ul.nav {
+    position: fixed;
+    padding: 1.5rem;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    background: #5A2D82;
+  }
+  .header .navbar ul.nav li > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header .navbar ul.nav li :nth-child(1) {
+    margin-bottom: 0.6rem;
+  }
+  .header .navbar ul.nav li > a :nth-child(1) {
+    font-size: 2.5rem;
+  }
+  .header .navbar ul.nav li > a > :nth-last-child(1) {
+    font-size: clamp(1.6rem, 1vw, 2.6rem);
+    text-align: center;
+  }
+  .header .navbar .search {
+    margin: 0 4rem;
+  }
+  .header .logo {
+    display: flex;
+    justify-content: center;
+  }
+}
 .header h1 {
   font-size: 3.4rem;
 }
@@ -73,12 +111,15 @@ html {
 .container {
   margin: 4rem;
 }
-.container > span {
+.container > a {
+  color: #000;
+}
+.container a > span, .container > span {
   font-size: 2.5rem;
   font-weight: 800;
 }
 .container .cards {
-  margin-top: 3rem;
+  margin: 3rem 0 9rem 0;
   display: grid;
   -ms-display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
@@ -143,7 +184,7 @@ html {
   position: absolute;
   width: 0;
   height: 0;
-  left: 25.5rem;
+  left: 24rem;
   top: 0;
   color: #FFF;
 }
@@ -164,9 +205,6 @@ html {
 .container .cards__price {
   font-weight: bold;
   color: #EBD341;
-}
-.container .cards__fav--remove {
-  color: red;
 }
 .container .noWishlist {
   width: 100vw;

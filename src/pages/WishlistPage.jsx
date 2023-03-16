@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Header from '../components/Header'
 import { useRequestLocalStorage } from '../services'
 import { TiDeleteOutline } from 'react-icons/ti'
+import { Link } from 'react-router-dom'
 
 const WishlistPage = () => {
   const { data: favorites } = useRequestLocalStorage('wishlist')
@@ -61,7 +62,12 @@ const WishlistPage = () => {
     <>
       <Header onSearch={setSearch}/>
       <main className="container">
-        <span>{"Home > Lista de desejos"}</span>
+      <Link to={'/'}>
+          <span>
+            Home
+          </span>
+        </Link>
+        <span>{" > Lista de desejos"}</span>
         <div className="cards">
           {wishlist?.length > 0
             ? returnWishlist(wishlist)

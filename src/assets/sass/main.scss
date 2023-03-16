@@ -20,7 +20,63 @@ html {
   font-family: variables.$font-family;
 }
 
+
+
+
 .header {
+  
+  @media screen and (max-width: 720px){
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4rem 0;
+
+
+    & .navbar ul.nav  {
+    position: fixed;
+    padding: 1.5rem ;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    background: variables.$bg-header;
+  }
+
+  & .navbar ul.nav li > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+  }
+
+  & .navbar ul.nav li :nth-child(1){
+    margin-bottom: .6rem;
+  }
+
+  & .navbar ul.nav li > a :nth-child(1){
+    font-size: 2.5rem;
+  }
+
+  & .navbar ul.nav li > a > :nth-last-child(1){
+    font-size: clamp(1.6rem, 1vw, 2.6rem);
+    text-align: center;
+  }
+
+
+  & .navbar .search{
+    margin: 0 4rem;
+  }
+
+  & .logo{
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+ }
+
+
   background-color: variables.$bg-header;
   color: variables.$primary-text-color;
   height: 20vh;
@@ -91,13 +147,17 @@ html {
 .container {
   margin: 4rem;
 
-  & > span {
+  & > a {
+    color: variables.$secondary-text-color;
+  }
+
+  & a > span,  & > span{
     font-size: 2.5rem;
     font-weight: 800;
   }
 
   .cards{
-    margin-top: 3rem;
+    margin: 3rem 0 9rem 0;
     display: grid;
     -ms-display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30rem , 1fr));
@@ -108,7 +168,6 @@ html {
       grid-template-columns: repeat(4, minmax(30rem , 1fr));
       -ms-grid-template-columns: repeat(4, minmax(30rem , 1fr));
     } 
-
 
 
     &__item.home::before{
@@ -176,7 +235,7 @@ html {
       position: absolute;
       width: 0;
       height: 0;
-      left: 25.5rem;
+      left: 24rem;
       top: 0;
       color: #FFF;
       
@@ -209,9 +268,6 @@ html {
       color: variables.$price-color;
     }
 
-    &__fav--remove{
-      color: red;
-    }
 
 
   }
