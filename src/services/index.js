@@ -26,12 +26,9 @@ export function useRequestLocalStorage(key){
   const [data, setData] = useState([])
 
   useEffect(() => {
-    setData(localStorage.getItem(key))
+    setData(JSON.parse(localStorage.getItem(key)))
   }, [])
 
   return { data }
 }
 
-export function sendLocalStorage(favorites){
-  localStorage.setItem('wishlist', favorites)
-}

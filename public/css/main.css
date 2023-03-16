@@ -90,7 +90,7 @@ html {
     -ms-grid-template-columns: repeat(4, minmax(30rem, 1fr));
   }
 }
-.container .cards__item::before {
+.container .cards__item.home::before {
   content: " ";
   padding: 1.9rem;
   height: 0.1rem;
@@ -103,7 +103,7 @@ html {
   border-radius: 0 0 0.3rem 0.3rem;
   cursor: pointer;
 }
-.container .cards__item::after {
+.container .cards__item.home::after {
   content: " ";
   width: 0;
   height: 0;
@@ -114,18 +114,6 @@ html {
   border-top: 2rem solid #000;
   border-bottom: 0;
   position: absolute;
-  cursor: pointer;
-}
-.container .cards__fav {
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 0.6rem;
-  top: 0.6rem;
-  color: #FFF;
-}
-.container .cards__fav > svg {
-  font-size: 3rem;
   cursor: pointer;
 }
 .container .cards__item {
@@ -139,6 +127,31 @@ html {
   flex-wrap: wrap;
   position: relative;
 }
+.container .cards__fav {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0.6rem;
+  top: 0.6rem;
+  color: #FFF;
+}
+.container .cards__fav > svg {
+  font-size: 3rem;
+  cursor: pointer;
+}
+.container .cards__fav.wishlist {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 25.5rem;
+  top: 0;
+  color: #FFF;
+}
+.container .cards__fav.wishlist > svg {
+  font-size: 4.5rem;
+  cursor: pointer;
+  fill: #000;
+}
 .container .cards__image img {
   width: 100%;
   object-fit: cover;
@@ -151,6 +164,9 @@ html {
 .container .cards__price {
   font-weight: bold;
   color: #EBD341;
+}
+.container .cards__fav--remove {
+  color: red;
 }
 .container .noWishlist {
   width: 100vw;

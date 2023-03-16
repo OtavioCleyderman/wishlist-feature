@@ -109,7 +109,9 @@ html {
       -ms-grid-template-columns: repeat(4, minmax(30rem , 1fr));
     } 
 
-    &__item::before{
+
+
+    &__item.home::before{
       content: ' ';
       padding: 1.9rem;
       height: .1rem;
@@ -123,7 +125,7 @@ html {
       cursor: pointer;
     }
 
-    &__item::after{
+    &__item.home::after{
       content: ' ';
       width: 0;
       height: 0;
@@ -137,6 +139,21 @@ html {
       cursor: pointer;
     }
 
+    &__item{
+      margin: 0 2rem 2rem 0;
+      max-width: 30rem;
+      height: 48rem;
+
+      border: 1px solid rgb(185, 185, 185);
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+
+      position: relative;
+
+    }
   
 
     &__fav{
@@ -155,21 +172,23 @@ html {
       }
     }
 
-    &__item{
-      margin: 0 2rem 2rem 0;
-      max-width: 30rem;
-      height: 48rem;
+    &__fav.wishlist{
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 25.5rem;
+      top: 0;
+      color: #FFF;
+      
 
-      border: 1px solid rgb(185, 185, 185);
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex-wrap: wrap;
-
-      position: relative;
-
+      & > svg{
+        font-size: 4.5rem;
+        cursor: pointer;
+        fill: #000;
+        
+      }
     }
+
 
 
     &__image{
@@ -190,6 +209,11 @@ html {
       color: variables.$price-color;
     }
 
+    &__fav--remove{
+      color: red;
+    }
+
+
   }
 
   .noWishlist{
@@ -205,6 +229,9 @@ html {
   }
 
 }
+
+
+
 
 
 

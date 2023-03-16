@@ -10,7 +10,6 @@ function home() {
   const [products, setProducts] = useState(data)
 
 
-
   useEffect(() => {
     // Atualiza os ícones de favorito na lista de produtos
     if (data && favorites) {
@@ -65,7 +64,7 @@ function home() {
           {isRequest && <p> Carregando... </p> }
           {products?.map(product => {
             return (
-              <div className="cards__item" key={product.id}>
+              <div className="cards__item home" key={product.id}>
                 <div className="cards__fav"  >
                   <AiFillHeart fill={product.isFavorite ? 'red' : 'white'} onClick={handleClick} />
                 </div>  
