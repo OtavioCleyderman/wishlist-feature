@@ -1,21 +1,31 @@
 import React, { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
-import { useRequestApi } from '../services'
 
 
-function SearchBar() {
-  // const { data } = useRequestApi('https://run.mocky.io/v3/66063904-d43c-49ed-9329-d69ad44b885e')
+function SearchBar({ onSearch }) {
   const [search, setSearch] = useState('')
- 
+
+  function handleInputChange(e) {
+    const newSearch = e.target.value;
+    setSearch(newSearch);
+    onSearch(newSearch);
+  }
 
   return (
     <>
-      {/* <input type="text" />  */}
       <div className='search'>
-        <FaSearch /> <input type="text" placeholder='Busca' value={search} onChange={(e) => setSearch(e.target.value)}/>
+        <FaSearch /> 
+        <input 
+          type="text" 
+          placeholder='Busca' 
+          value={search} 
+          onChange={handleInputChange}
+        />
       </div>
     </>
   )
 }
+
+
 
 export default SearchBar

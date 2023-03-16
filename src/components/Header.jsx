@@ -4,11 +4,11 @@ import Logo from './Logo'
 import NavBar from './NavBar'
 
 
-function Header() {
+function Header({onSearch}) {
   return (
     <div className='header'>
       <Logo />
-      <NavBar />
+      <NavBar onSearch={onSearch}/>
     </div>
   )
 }

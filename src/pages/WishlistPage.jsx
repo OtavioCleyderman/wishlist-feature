@@ -6,6 +6,11 @@ import { TiDeleteOutline } from 'react-icons/ti'
 const WishlistPage = () => {
   const { data: favorites } = useRequestLocalStorage('wishlist')
   const [wishlist, setWishlist] = useState(favorites)
+  const [search, setSearch] = useState('')
+
+  const filteredProducts = search
+  ? wishlist.filter((product) => product.title.toLowerCase().includes(search.toLowerCase()))
+  : wishlist;
 
   useEffect(() => {
     setWishlist(favorites)
@@ -21,7 +26,7 @@ const WishlistPage = () => {
   
   function returnWishlist(favorites){
     return (
-      favorites?.map(favorite => (
+      filteredProducts?.map(favorite => (
           <div className="cards__item wishlist" key={favorite.id}>
             <div className="cards__fav wishlist" onClick={handleClick}>
               <TiDeleteOutline  />
@@ -54,7 +59,7 @@ const WishlistPage = () => {
 
   return (
     <>
-      <Header />
+      <Header onSearch={setSearch}/>
       <main className="container">
         <span>{"Home > Lista de desejos"}</span>
         <div className="cards">

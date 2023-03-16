@@ -3,11 +3,16 @@ import Header from '../components/Header'
 import { useRequestApi } from '../services'
 import { AiFillHeart } from 'react-icons/ai'
 
-
 function home() {
   const { data, isRequest } = useRequestApi('https://run.mocky.io/v3/66063904-d43c-49ed-9329-d69ad44b885e')
   const [favorites, setFavorites] = useState(() => JSON.parse(localStorage.getItem('wishlist')) || [])
   const [products, setProducts] = useState(data)
+  const [search, setSearch] = useState('')
+  
+  const filteredProducts = search
+    ? products.filter((product) => product.title.toLowerCase().includes(search.toLowerCase()))
+    : products;
+
 
 
   useEffect(() => {
@@ -52,17 +57,18 @@ function home() {
 
   }
 
+ 
   localStorage.setItem('wishlist', JSON.stringify(favorites))
   
 
   return (
     <>
-      <Header />
+      <Header onSearch={setSearch}/>
       <main className='container'>
         <span>Home</span>
         <div className="cards">
           {isRequest && <p> Carregando... </p> }
-          {products?.map(product => {
+          {filteredProducts?.map(product => {
             return (
               <div className="cards__item home" key={product.id}>
                 <div className="cards__fav"  >
