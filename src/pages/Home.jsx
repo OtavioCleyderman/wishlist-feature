@@ -71,13 +71,13 @@ function home() {
     <>
       <Header onSearch={setSearch}/>
       <main className='container'>
+        { isRequest && <Loading  />}
         <Link to={'/'}>
           <span>
             Home
           </span>
         </Link>
         <div className="cards">
-          {isRequest && <Loading  />}
           {filteredProducts?.map(product => {
             return (
               <div className="cards__item home" key={product.id}>

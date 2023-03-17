@@ -72,6 +72,7 @@ html {
 
 .container {
   margin: 4rem;
+  position: relative;
 }
 .container > a {
   color: #000;
@@ -86,8 +87,6 @@ html {
   -ms-display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
   -ms-grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  grid-template-areas: "a b c";
-  -ms-grid-template-areas: "a b c";
 }
 .container .cards__item.home::before {
   content: " ";
@@ -181,13 +180,6 @@ html {
     -ms-grid-template-columns: repeat(4, minmax(30rem, 1fr));
   }
 }
-@media only screen and (max-width: 980px) {
-  div.loading {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-}
 @media screen and (max-width: 720px) {
   .header {
     display: flex;
@@ -227,14 +219,6 @@ html {
     margin-bottom: 1.5rem;
   }
 }
-@media only screen and (max-width: 680px) {
-  div.loading {
-    grid-area: a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
 @media screen and (max-width: 340px) {
   .container .cards .cards__item,
   .container .cards .cards__item.home {
@@ -253,9 +237,6 @@ html {
   .container div.noWishlist {
     max-width: 20rem;
   }
-  div.loading {
-    width: 23rem;
-  }
 }
 @keyframes spinner {
   0% {
@@ -266,10 +247,9 @@ html {
   }
 }
 .loading {
-  grid-area: b;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 10rem;
+  left: 50%;
 }
 
 .loading .loading__spinner {
