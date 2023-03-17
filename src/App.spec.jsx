@@ -8,6 +8,7 @@ import SearchBar from './components/SearchBar';
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import WishlistPage from './pages/WishlistPage';
+import Loading from './components/Loading'
 import { MemoryRouter } from 'react-router-dom';
 
 
@@ -115,7 +116,7 @@ describe('Home Page', () => {
         <Home />
       </MemoryRouter>
     );
-    expect(screen.getByText('Carregando...')).toBeInTheDocument();
+    expect(screen.getByTestId('loading-spinner')).toBeInTheDocument();
   });
 
   it('displays filtered products', async () => {

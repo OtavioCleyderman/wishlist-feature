@@ -77,7 +77,7 @@ function home() {
           </span>
         </Link>
         <div className="cards">
-          {isRequest && <Loading data-testid="loading-spinner" />}
+          {isRequest && <Loading  />}
           {filteredProducts?.map(product => {
             return (
               <div className="cards__item home" key={product.id}>
