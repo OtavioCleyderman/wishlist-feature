@@ -106,12 +106,16 @@ html {
   }
 
 
-  .cards{
+  .cards {
     margin: 3rem 0 9rem 0;
     display: grid;
     -ms-display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30rem , 1fr));
     -ms-grid-template-columns: repeat(auto-fill, minmax(30rem , 1fr));
+    grid-template-areas: "a b c";
+    -ms-grid-template-areas: "a b c";
+
+
 
     &__item.home::before{
       content: ' ';
@@ -243,6 +247,15 @@ html {
   }
 } 
 
+@media only screen and (max-width: 980px){
+
+  div.loading {
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
 
 @media screen and (max-width: 720px){
   .header{
@@ -294,6 +307,17 @@ html {
     margin-bottom: 1.5rem;
   }
 
+
+
+}
+
+@media only screen and (max-width: 680px){
+  div.loading {
+    grid-area: a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 
@@ -321,12 +345,36 @@ html {
     max-width: 20rem;
   }
   
+  div.loading {
+    width: 23rem;
+  }
 }
 
 
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
+.loading {
+  grid-area: b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
+.loading .loading__spinner {
+  width: 5rem;
+  height: 5rem;
+  border: 10px solid #f3f3f3; 
+  border-top: 10px solid #5A2D82; 
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
 
 
 

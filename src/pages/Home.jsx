@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
+import Loading from '../components/Loading'
 import { useRequestApi } from '../services'
 import { AiFillHeart } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
+import unidecode from 'unidecode'
 
 function home() {
   const { data, isRequest } = useRequestApi('https://run.mocky.io/v3/66063904-d43c-49ed-9329-d69ad44b885e')
@@ -11,7 +13,11 @@ function home() {
   const [search, setSearch] = useState('')
   
   const filteredProducts = search
-    ? products.filter((product) => product.title.toLowerCase().includes(search.toLowerCase()))
+    ? products.filter((product) => {
+      const productTitle = unidecode(product.title.toLowerCase());
+      const searchQuery = unidecode(search.toLowerCase())
+      return productTitle.includes(searchQuery)
+    })
     : products;
 
 
@@ -71,7 +77,7 @@ function home() {
           </span>
         </Link>
         <div className="cards">
-          {isRequest && <p data-testid="loading-spinner"> Carregando... </p> }
+          {isRequest && <Loading data-testid="loading-spinner" />}
           {filteredProducts?.map(product => {
             return (
               <div className="cards__item home" key={product.id}>

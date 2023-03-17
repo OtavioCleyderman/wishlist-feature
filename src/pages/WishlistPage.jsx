@@ -3,14 +3,20 @@ import Header from '../components/Header'
 import { useRequestLocalStorage } from '../services'
 import { TiDeleteOutline } from 'react-icons/ti'
 import { Link } from 'react-router-dom'
+import unidecode from 'unidecode'
 
 const WishlistPage = () => {
   const { data: favorites } = useRequestLocalStorage('wishlist')
   const [wishlist, setWishlist] = useState(favorites)
   const [search, setSearch] = useState('')
 
+
   const filteredProducts = search
-  ? wishlist.filter((product) => product.title.toLowerCase().includes(search.toLowerCase()))
+  ? wishlist.filter((product) => {
+    const productTitle = unidecode(product.title.toLowerCase());
+    const searchQuery = unidecode(search.toLowerCase())
+    return productTitle.includes(searchQuery)
+  })
   : wishlist;
 
   useEffect(() => {
