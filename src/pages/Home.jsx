@@ -71,12 +71,12 @@ function home() {
           </span>
         </Link>
         <div className="cards">
-          {isRequest && <p> Carregando... </p> }
+          {isRequest && <p data-testid="loading-spinner"> Carregando... </p> }
           {filteredProducts?.map(product => {
             return (
               <div className="cards__item home" key={product.id}>
                 <div className="cards__fav"  >
-                  <AiFillHeart fill={product.isFavorite ? 'red' : 'white'} onClick={handleClick} />
+                  <AiFillHeart role="addWishlist" data-testid="fav-icon" fill={product.isFavorite ? 'red' : 'white'} onClick={handleClick} />
                 </div>  
                 <div className="cards__id" style={{display: "none"}}>{product.id}</div>
                 <div className="cards__image">

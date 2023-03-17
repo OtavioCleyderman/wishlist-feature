@@ -28,15 +28,15 @@ const WishlistPage = () => {
   function returnWishlist(favorites){
     return (
       filteredProducts?.map(favorite => (
-          <div className="cards__item wishlist" key={favorite.id}>
+          <div className="cards__item wishlist"  key={favorite.id}>
             <div className="cards__fav wishlist" onClick={handleClick}>
-              <TiDeleteOutline  />
+              <TiDeleteOutline  data-testid="delete-button"/>
             </div>
             <span className="cards__id" style={{display: "none"}}>{favorite.id}</span>
             <div className="cards__image">
               <img src={favorite.image} alt="" />
             </div>
-            <div className="cards__title">
+            <div className="cards__title" data-testid="product-title">
               {favorite.title}
             </div>
             <div className="cards__price">
@@ -68,7 +68,7 @@ const WishlistPage = () => {
           </span>
         </Link>
         <span>{" > Lista de desejos"}</span>
-        <div className="cards">
+        <div className="cards" >
           {wishlist?.length > 0
             ? returnWishlist(wishlist)
             : returnNoWishlist()}

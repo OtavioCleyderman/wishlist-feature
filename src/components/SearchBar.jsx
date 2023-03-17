@@ -13,9 +13,10 @@ function SearchBar({ onSearch }) {
 
   return (
     <>
-      <div className='search'>
+      <div className='search' data-testid="search-bar">
         <FaSearch /> 
         <input 
+          role="searchbox"
           type="text" 
           placeholder='Busca' 
           value={search} 

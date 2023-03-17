@@ -4,7 +4,7 @@ import SearchBar from './SearchBar'
 
 function NavBar({onSearch}) {
   return (
-    <div className='navbar'>
+    <div className='navbar' data-testid="navbar">
       <Nav />
       <SearchBar onSearch={onSearch} />
     </div>

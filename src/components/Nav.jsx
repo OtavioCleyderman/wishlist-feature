@@ -6,7 +6,7 @@ import { HiHeart } from 'react-icons/hi2'
 
 function Nav() {
   return (
-      <ul className='nav'>
+      <ul className='nav' data-testid="nav">
         <li className='nav__item'>
           <Link to="">
             <HiMapPin /> 

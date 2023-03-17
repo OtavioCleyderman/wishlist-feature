@@ -7,8 +7,8 @@ import NavBar from './NavBar'
 function Header({onSearch}) {
   return (
     <div className='header'>
-      <Logo />
-      <NavBar onSearch={onSearch}/>
+      <Logo  />
+      <NavBar onSearch={onSearch} />
     </div>
   )
 }
