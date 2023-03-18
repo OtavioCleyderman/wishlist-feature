@@ -9,10 +9,10 @@ import Modal from '../components/Modal'
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenCityModal, setIsOpenCityModal] = useState(false);
-const [isOpenCentralModal, setIsOpenCentralModal] = useState(false);
+  const [isOpenCentralModal, setIsOpenCentralModal] = useState(false);
   const [cep, setCep] = useState('');
   const [city, setCity] = useState(localStorage.getItem('city') || 'São Paulo');
-
+  const [classe, setClasse] = useState('');
 
   const handleOpenModal = (modalType) => {
     if (modalType == 'city') {
@@ -55,8 +55,14 @@ const [isOpenCentralModal, setIsOpenCentralModal] = useState(false);
           setCity(address);
           handleCloseModal('city');
           localStorage.setItem('city', address);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      const element = document.querySelector('.modal__message')
+      element.classList.remove('modal__message--none')
+
+      setTimeout(() => {
+        element.classList.add('modal__message--none')
+      }, 10000)
+    
     }
   };
 
@@ -100,6 +106,9 @@ const [isOpenCentralModal, setIsOpenCentralModal] = useState(false);
               Para ficar por dentro dos produtos que possuem frete grátis para sua região!
             </p>
             <input className='modal__inputCep' type="text" placeholder='Insira aqui o CEP' onChange={handleCepChange} value={cep}/>
+            <p className='modal__message modal__message--none'>
+              Não foi possível encontrar a cidade com o CEP informado. Verifique o CEP correto e/ou tente novamente mais tarde.
+            </p>
             <button 
               className='modal__btnActionCep'
               onClick={handleCepSubmit}
