@@ -47,7 +47,7 @@ const [isOpenCentralModal, setIsOpenCentralModal] = useState(false);
       const address = JSON.parse(data.contents)
       setCity(address.localidade);
       // console.log(localidade);
-      handleCloseModal();
+      handleCloseModal('city');
       localStorage.setItem('city', address.localidade);
     } catch (error) {
       console.error(error);
