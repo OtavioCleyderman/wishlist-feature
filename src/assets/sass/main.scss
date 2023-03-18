@@ -414,8 +414,9 @@ html {
 
   &__title {
     margin: 0;
-    font-size: 2.4rem;
+    font-size: clamp(2rem, 1.5vw, 2.4rem);
     font-weight: 600;
+
   }
 
 
@@ -466,10 +467,6 @@ html {
     flex-direction: column;
     align-items: center;
   }
-
-
-
-
 
 
 
@@ -539,7 +536,7 @@ html {
     background: none;
     border: none;
     padding: 0;
-    font-size: 20px;
+    font-size: clamp(1rem, 3vw, 2rem);
     color: #ccc;
     cursor: pointer;
     transition: color 0.3s ease;
