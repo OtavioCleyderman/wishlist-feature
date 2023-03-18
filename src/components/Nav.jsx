@@ -8,16 +8,26 @@ import Modal from '../components/Modal'
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenCityModal, setIsOpenCityModal] = useState(false);
+const [isOpenCentralModal, setIsOpenCentralModal] = useState(false);
   const [cep, setCep] = useState('');
   const [city, setCity] = useState(localStorage.getItem('city') || 'São Paulo');
 
 
-  const handleOpenModal = () => {
-    setIsOpen(true);
+  const handleOpenModal = (modalType) => {
+    if (modalType == 'city') {
+      setIsOpenCityModal(true);
+    } else if (modalType == 'contact') {
+      setIsOpenCentralModal(true);
+    }
   };
 
-  const handleCloseModal = () => {
-    setIsOpen(false);
+  const handleCloseModal = (modalType) => {
+    if (modalType == 'city') {
+      setIsOpenCityModal(false);
+    } else if (modalType == 'contact') {
+      setIsOpenCentralModal(false);
+    }
   };
 
 
@@ -49,7 +59,7 @@ function Nav() {
     <>
       <ul className='nav' data-testid="nav">
         <li className='nav__item'>
-          <Link onClick={handleOpenModal}>
+          <Link onClick={() => handleOpenModal('city')} >
             <HiMapPin /> 
             <span>
             {city ? `Cidade: ${city}` : 'Cidade: São paulo'}
@@ -57,7 +67,7 @@ function Nav() {
           </Link>
         </li>
         <li className='nav__item'>
-          <Link to="">
+          <Link onClick={() => handleOpenModal('contact')} >
             <HiPhone /> 
             <span>
               Central de atendimento
@@ -73,10 +83,10 @@ function Nav() {
           </Link>
         </li>
       </ul>
-      {isOpen && 
+      {isOpenCityModal  && 
         <Modal
-        isOpen={isOpen}
-        onClose={handleCloseModal}
+        isOpen={isOpenCityModal}
+        onClose={() => setIsOpenCityModal(false)}
         title="Informe seu CEP"
         content={
           <div className='modal__contentCep'>
@@ -91,6 +101,39 @@ function Nav() {
               Consultar
             </button>
           </div>
+        }
+        /> 
+      }
+      {isOpenCentralModal  && 
+        <Modal
+        isOpen={isOpenCentralModal }
+        onClose={() => setIsOpenCentralModal(false)}
+        title="Centrais de atendimento"
+        content={
+          <div className='modal__content'>
+          <div className='modal__canais'>
+            <div className="modal__atendimento">
+              <p>Atendimento</p>
+              <div className='modal__numeros'>
+                <span>(11) 3028-5333</span>
+                <span>(11) 3070-6888</span>
+              </div>
+              <div className='modal__regiao'>
+                <span>Para Rio de Janeiro e região</span>
+                <span>0800 888 8464</span>
+                <span>Somente telefones fixos e locais</span>
+              </div>
+            </div>
+
+            <div className="modal__vendas">
+              <p>Central de vendas</p>
+              <div className='modal__numeros'>
+                <span>(11) 3028-5355</span>
+                <span>(11) 3070-6999</span>
+              </div>
+            </div>
+          </div>
+        </div>
         }
         /> 
       }

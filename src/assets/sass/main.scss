@@ -65,6 +65,10 @@ html {
           }
           
         }
+
+        & > :hover{
+          color: #e2dbdb;
+        }
       }
     }
 
@@ -379,7 +383,7 @@ html {
   &__dialog {
     position: relative;
     width: 80%;
-    max-width: 50rem;
+    max-width: 55rem;
     max-height: 80%;
     background-color: #fff;
     border-radius: 8px;
@@ -424,10 +428,50 @@ html {
     flex-direction: column;
   }
 
-  &__textCep{
+
+  &__textCep, &__text{
     text-align: center;
     margin-bottom: 1rem ;
   }
+
+  &__canais{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__atendimento {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  &__atendimento > p,
+  &__vendas > p{
+    margin-bottom: 1rem;
+    color: variables.$third-text-color;
+    font-weight: bold;
+  }
+
+  &__numeros span:nth-child(1) {
+    margin-right: .8rem;
+  }
+
+  &__regiao{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  &__vendas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+
+
+
+
 
   input[type="text"] {
     padding: 1rem;

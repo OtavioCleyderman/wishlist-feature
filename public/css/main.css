@@ -52,6 +52,9 @@ html {
 .header .navbar .nav__item a :first-child {
   margin-right: 1rem;
 }
+.header .navbar .nav__item > :hover {
+  color: #e2dbdb;
+}
 .header .navbar .search {
   display: flex;
   background-color: #FFF;
@@ -284,7 +287,7 @@ html {
 .modal__dialog {
   position: relative;
   width: 80%;
-  max-width: 50rem;
+  max-width: 55rem;
   max-height: 80%;
   background-color: #fff;
   border-radius: 8px;
@@ -320,9 +323,35 @@ html {
   display: flex;
   flex-direction: column;
 }
-.modal__textCep {
+.modal__textCep, .modal__text {
   text-align: center;
   margin-bottom: 1rem;
+}
+.modal__canais {
+  display: flex;
+  justify-content: space-around;
+}
+.modal__atendimento {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.modal__atendimento > p, .modal__vendas > p {
+  margin-bottom: 1rem;
+  color: #5A2D82;
+  font-weight: bold;
+}
+.modal__numeros span:nth-child(1) {
+  margin-right: 0.8rem;
+}
+.modal__regiao {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.modal__vendas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .modal input[type=text] {
   padding: 1rem;
