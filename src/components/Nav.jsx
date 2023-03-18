@@ -36,19 +36,25 @@ const [isOpenCentralModal, setIsOpenCentralModal] = useState(false);
   };
 
   const handleCepSubmit = async () => {
+
+    const url = `https://viacep.com.br/ws/${cep}/json`;
+    const options = {
+      method: "GET",
+      mode: "cors",
+      headers: {
+          'content-type': 'application/json;charset=utf-8',
+      }
+  }
     try {
       if (!cep) {
         return;
       }
-      const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://viacep.com.br/ws/${cep}/json/`)}`)
-      // .then(response => response.json())
-      // .then(data => console.log(data));
-      const data = await response.json();
-      const address = JSON.parse(data.contents)
-      setCity(address.localidade);
-      // console.log(localidade);
-      handleCloseModal('city');
-      localStorage.setItem('city', address.localidade);
+      const response = await fetch(url, options)
+          const data = await response.json();
+          const address = data.localidade
+          setCity(address);
+          handleCloseModal('city');
+          localStorage.setItem('city', address);
     } catch (error) {
       console.error(error);
     }
