@@ -339,14 +339,22 @@ html {
   margin-bottom: 1rem;
   color: #5A2D82;
   font-weight: bold;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
 }
 .modal__numeros span:nth-child(1) {
   margin-right: 0.8rem;
+}
+.modal__numeros > div {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  word-wrap: none;
 }
 .modal__regiao {
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+}
+.modal__regiao > div {
+  font-size: clamp(1rem, 2vw, 1.6rem);
 }
 .modal__vendas {
   display: flex;

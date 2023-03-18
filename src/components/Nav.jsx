@@ -130,21 +130,21 @@ function Nav() {
             <div className="modal__atendimento">
               <p>Atendimento</p>
               <div className='modal__numeros'>
-                <span>(11) 3028-5333</span>
-                <span>(11) 3070-6888</span>
+                <div>(11) 3028-5333</div>
+                <div>(11) 3070-6888</div>
               </div>
               <div className='modal__regiao'>
-                <span>Para Rio de Janeiro e região</span>
-                <span>0800 888 8464</span>
-                <span>Somente telefones fixos e locais</span>
+                <div>Para Rio de Janeiro e região</div>
+                <div>0800 888 8464</div>
+                <div>Somente telefones fixos e locais</div>
               </div>
             </div>
 
             <div className="modal__vendas">
               <p>Central de vendas</p>
               <div className='modal__numeros'>
-                <span>(11) 3028-5355</span>
-                <span>(11) 3070-6999</span>
+                <div>(11) 3028-5355</div>
+                <div>(11) 3070-6999</div>
               </div>
             </div>
           </div>
