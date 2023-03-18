@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Loading from '../components/Loading'
-import { useRequestApi } from '../services'
+import { useRequestProducts } from '../services'
 import { AiFillHeart } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import unidecode from 'unidecode'
 
 function home() {
-  const { data, isRequest } = useRequestApi('https://run.mocky.io/v3/66063904-d43c-49ed-9329-d69ad44b885e')
+  const { data, isRequest } = useRequestProducts('https://run.mocky.io/v3/66063904-d43c-49ed-9329-d69ad44b885e')
   const [favorites, setFavorites] = useState(() => JSON.parse(localStorage.getItem('wishlist')) || [])
   const [products, setProducts] = useState(data)
   const [search, setSearch] = useState('')
@@ -66,6 +66,7 @@ function home() {
  
   localStorage.setItem('wishlist', JSON.stringify(favorites))
   
+
 
   return (
     <>

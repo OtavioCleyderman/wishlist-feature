@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-export function useRequestApi(url, options){
+export function useRequestProducts(url, options){
   const [data, setData] = useState([])
   const [error, setError] = useState(null)
   const [isRequest, setIsRequest] = useState(true)
